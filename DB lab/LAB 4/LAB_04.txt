@@ -1,0 +1,39 @@
+i)select e.ename, e.job, d.dname , e.sal , s.grade FROM emp e, DEPT d, SALGRADE s WHERE e.DEPTNO = d.DEPTNO AND e.SAL BETWEEN LOSAL AND HISAL;
+
+ii)select d.dname from dept d where d.deptno in (select e.deptno from emp e Group by(e.deptno) HAVING(COUNT(*)>=2));
+
+iii)select * from emp , salgrade where sal between losal and hisal and sal < losal;
+
+iv)select d.dname , d.deptno from dept d where d.deptno in (select e.deptno from emp e Group by(e.deptno) HAVING(COUNT(*)<=0));
+
+v)select e.ename,e.sal,d.dname from emp e full outer join dept d on (e.deptno = d.deptno) ;
+
+vi)select e.ename , e.sal, d.dname  , s.grade from emp e , dept d , salgrade s where s.grade <> 4 and e.deptno = d.deptno and sal BETWEEN losal and hisal  ;
+
+vii)select e.ename ,e.job ,e.sal*12 ,d.dname ,d.deptno,s.grade from emp e , dept d , salgrade s  where (e.sal*12=60000 or e.job != 'ANALYST') and e.deptno=d.deptno and e.sal between s.losal and s.hisal;
+
+viii)select e.ename FROM emp e, emp m WHERE e.hiredate>m.hiredate and e.mgr = m.empno ;
+
+ix)select e.ename , e.sal , d.dname from emp e , salgrade s , dept d  where (e.deptno = d.deptno) and e.sal BETWEEN losal and hisal  and s.grade = 2;
+
+x)select e.ename , e.job , d.dname , e.sal , s.grade from emp e, dept d, salgrade s where (e.deptno = d.deptno) and e.sal BETWEEN losal and hisal order by e.deptno;
+
+xi)select * from emp where deptno in (select e1.deptno from emp e1,emp e2 where (e1.mgr=e2.empno));
+
+xii)select e.ename ,e.sal ,e.deptno from emp e where e.deptno = 10 and e.sal >= ( select min(sal) from emp where deptno =30)   ; 
+
+xiii)select e.ename ,e.sal ,e.deptno from emp e where e.deptno <> 30 and e.sal >= ( select max(sal) from emp where deptno =30)   ; 
+
+xiv)select d.deptno from dept d where d.deptno not in  (select deptno from emp  group by deptno having count(*)>0);
+
+xv)select e.deptno, e.sal,e1.ename from emp e ,emp e1 where e.deptno = e1.deptno and e.sal = e1.sal and e1.comm is not NULL
+
+xvi)SELECT job, sum(sal) FROM emp WHERE job <> 'SALESMAN'  AND NVL2(comm, sal+comm, sal)*12 >= 5000 GROUP BY job ORDER BY (sum(sal)) desc;
+
+xvii)select e.ename , e1.ename from emp e , emp e1 where e.mgr=e1.empno  or (e.mgr is NULL and e1.mgr is NULL);
+
+xviii)select DISTINCT(e.job) , d.loc from emp e , dept d where e.deptno = d.deptno and d.deptno = 30; 
+
+xix)select e.ename as EMPLOYEE, e.empno as EMP# ,e1.ename as MANAGER ,e.mgr as MGR# from emp e , emp e1 where e.mgr = e1.empno;
+
+xx)select ename from emp where sal = (select max(sal) from emp where sal < (select max(sal) from emp ));

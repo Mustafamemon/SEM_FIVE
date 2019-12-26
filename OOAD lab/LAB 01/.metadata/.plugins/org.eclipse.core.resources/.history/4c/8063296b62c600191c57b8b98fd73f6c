@@ -1,0 +1,23 @@
+package task;
+
+public class Cylinder extends Circle3{
+	private double height ;
+	public Cylinder() {
+		// TODO Auto-generated constructor stub
+		height = 1.0;
+	}
+	public double getHeigth() {
+		return height;
+	}
+	public double getArea() {
+		return (2*Math.PI*Math.pow(getRadius(), 2))+(2*Math.PI*getRadius()*height);
+	}
+	public double getVolume(){
+		getArea();
+	}
+	@Override
+	public String toString() {
+		return "Cylinder [height=" + height + " Area=" +  getArea() + " ]";
+	}
+	
+}

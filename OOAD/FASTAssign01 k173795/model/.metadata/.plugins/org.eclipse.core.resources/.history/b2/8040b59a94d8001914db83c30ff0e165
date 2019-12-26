@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_CdgTkNe8Eem-0qsAQbfdOQ" name="Assginment">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_DhdD4Ne8Eem-0qsAQbfdOQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zAIKINe8Eem-0qsAQbfdOQ" name="Teaching_Hospital"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zx-d0Ne8Eem-0qsAQbfdOQ" name="Offices"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_t7_scNe9Eem-0qsAQbfdOQ" name="Department"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_uR5rANe9Eem-0qsAQbfdOQ" name="Room"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4POPwNe9Eem-0qsAQbfdOQ" memberEnd="_4PzekNe9Eem-0qsAQbfdOQ _4QLSANe9Eem-0qsAQbfdOQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4Psw4Ne9Eem-0qsAQbfdOQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4PtX8Ne9Eem-0qsAQbfdOQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4QLSANe9Eem-0qsAQbfdOQ" name="teaching_hospital" type="_zAIKINe8Eem-0qsAQbfdOQ" association="_4POPwNe9Eem-0qsAQbfdOQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4PzekNe9Eem-0qsAQbfdOQ" name="department" type="_t7_scNe9Eem-0qsAQbfdOQ" association="_4POPwNe9Eem-0qsAQbfdOQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4QJc0Ne9Eem-0qsAQbfdOQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4QKq8Ne9Eem-0qsAQbfdOQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_PjTaQNe-Eem-0qsAQbfdOQ" memberEnd="_PjVPcde-Eem-0qsAQbfdOQ _PjWdkNe-Eem-0qsAQbfdOQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PjUoYNe-Eem-0qsAQbfdOQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PjVPcNe-Eem-0qsAQbfdOQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PjWdkNe-Eem-0qsAQbfdOQ" name="department" type="_t7_scNe9Eem-0qsAQbfdOQ" association="_PjTaQNe-Eem-0qsAQbfdOQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PjVPcde-Eem-0qsAQbfdOQ" name="offices" type="_zx-d0Ne8Eem-0qsAQbfdOQ" association="_PjTaQNe-Eem-0qsAQbfdOQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PjV2gNe-Eem-0qsAQbfdOQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PjV2gde-Eem-0qsAQbfdOQ" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

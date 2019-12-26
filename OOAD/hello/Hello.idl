@@ -1,0 +1,8 @@
+module HelloApp
+{
+  interface Hello
+  {
+    string EqOfMotion(in string v0,in string t,in string a);
+    oneway void shutdown();
+  };
+};

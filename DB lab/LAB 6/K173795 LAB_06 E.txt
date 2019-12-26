@@ -1,0 +1,223 @@
+-------------------------------------------------------Q1-----------------------------------------------------------------
+
+DECLARE
+    var1 INTEGER;  
+    var2 INTEGER;
+    sum1 INTEGER;
+BEGIN
+    var1:=&var1;
+    var2:=&var2;
+    sum1:=var1+var2;
+    DBMS_OUTPUT.PUT_LINE ('SUM : '||sum1);
+END;
+
+-------------------------------------------------------Q2-----------------------------------------------------------------
+
+DECLARE
+    var1 INTEGER;  
+    var2 INTEGER;
+    sum1 INTEGER;
+BEGIN
+    var1:=&var1;
+    var2:=&var2;
+    sum1:=0;
+    for i in var1..var2 LOOP
+        sum1:= sum1+i;
+    end LOOP;
+    
+    DBMS_OUTPUT.PUT_LINE ('SUM : '||sum1);
+END;
+
+-------------------------------------------------------Q3-----------------------------------------------------------------
+
+DECLARE
+    ENO EMP.EMPNO%TYPE;
+    E_NAME EMP.ENAME%TYPE;
+    H_DATE EMP.ENAME%TYPE;
+    D_NAME EMP.ENAME%TYPE;
+BEGIN
+    ENO:=&ENO;
+    SELECT e.ENAME,e.HIREDATE,d.DNAME INTO E_NAME , H_DATE , D_NAME FROM EMP e,DEPT d WHERE EMPNO=ENO and e.deptno=d.deptno;
+    DBMS_OUTPUT.PUT_LINE ('NAME OF THE EMPLOYEE IS '||E_NAME);
+    DBMS_OUTPUT.PUT_LINE ('HIREDATE OF THE EMPLOYEE IS '||H_DATE);
+    DBMS_OUTPUT.PUT_LINE ('DEP_NAME OF THE EMPLOYEE IS '||D_NAME);
+EXCEPTION
+     WHEN NO_DATA_FOUND
+     THEN DBMS_OUTPUT.PUT_LINE ('NO DATA FOUND');
+END;
+
+-------------------------------------------------------Q4-----------------------------------------------------------------
+
+DECLARE
+    var1 INTEGER; 
+    temp_1 INTEGER;
+    temp_2 INTEGER;
+    Digit_count INTEGER := 0 ;
+    divisor_1 INTEGER:=1 ;
+    divisor_2 INTEGER:=10 ;
+    f INTEGER:= 0;
+BEGIN
+    var1:=&var1;
+    temp_1:=var1;
+    while temp_1!=0
+    LOOP
+        temp_1:=temp_1/10;
+     Digit_count:=Digit_count+1;
+    end LOOP;
+    
+    for i in 2..Digit_count LOOP
+           divisor_1:=divisor_1*10;
+    end LOOP;
+    
+    Digit_count:=Digit_count/2;
+    temp_1:=var1;   
+    temp_2:=var1;
+    
+    for i in 1..Digit_count LOOP
+    
+        temp_1:=temp_1/divisor_1;
+        temp_2:=temp_2 mod 10;
+        if temp_1!=temp_2 then
+            f:=1;
+            exit ;
+        end if;
+        temp_1:=var1;
+        temp_2:=var1;
+        temp_1:=floor (temp_1 mod divisor_1);
+        temp_2:= floor (temp_2 / divisor_2);
+         divisor_1:=divisor_1/10;
+        divisor_2:=divisor_2*10;
+    end LOOP;
+    if f=0 then  
+        DBMS_OUTPUT.PUT_LINE ('PALINDROME');
+    else 
+        DBMS_OUTPUT.PUT_LINE ('NOT PALINDROME');
+    end if;
+END;
+
+-------------------------------------------------------Q5-----------------------------------------------------------------
+
+DECLARE
+    I_EMPNO EMP.EMPNO%TYPE;
+    I_ENAME EMP.ENAME%TYPE;
+    I_JOB   EMP.JOB%TYPE;
+    I_MGR   EMP.MGR%TYPE;
+    I_HIREDATE EMP.HIREDATE%TYPE;
+    I_SAL EMP.SAL%TYPE;
+    I_COMM EMP.COMM%TYPE;
+    I_DEPTNO EMP.DEPTNO%TYPE;
+    I_DNAME DEPT.DNAME%TYPE;
+    I_LOC DEPT.LOC%TYPE;
+BEGIN
+    I_EMPNO:=&I_EMPNO;
+    I_ENAME:='&I_ENAME'; 
+    I_JOB:='&I_JOB';
+    I_MGR:=&I_MGR;
+    I_HIREDATE:='&I_HIREDAT1E';
+    I_SAL:=&I_SAL;
+    I_COMM:=&I_COMM;
+    I_DEPTNO:=&I_DEPTNO;
+    I_DNAME:='&I_DNAME';
+    I_LOC:='&I_LOC';
+    INSERT INTO DEPT values(I_DEPTNO,I_DNAME,I_LOC);
+    INSERT INTO EMP values(I_EMPNO,I_ENAME,I_JOB,I_MGR, I_HIREDATE,I_SAL,I_COMM,I_DEPTNO);
+END;
+
+-------------------------------------------------------Q6-----------------------------------------------------------------
+
+SET SERVEROUTPUT ON
+DECLARE
+    I_SAL EMP.SAL%TYPE;
+    I_ENAME EMP.ENAME%TYPE;
+    I_EMPNO EMP.EMPNO%TYPE;
+    I_MGR EMP.MGR%TYPE; 
+BEGIN
+    I_EMPNO:= 7499;    
+    LOOP
+        SELECT MGR INTO I_MGR from emp where empno = I_EMPNO ;
+        if I_MGR is not NULL then
+            SELECT EMPNO ,ENAME, SAL  INTO I_EMPNO,I_ENAME , I_SAL from emp where empno = I_MGR ;    
+        else
+            exit;
+        end if;
+    Exit when I_SAL>=2500 ;
+    
+    end LOOP; 
+    if I_MGR is not NULL then
+        DBMS_OUTPUT.PUT_LINE (I_ENAME);
+        DBMS_OUTPUT.PUT_LINE (I_EMPNO);
+    else
+        DBMS_OUTPUT.PUT_LINE ('No Data Found');
+        end if;
+END;
+
+-------------------------------------------------------Q7-----------------------------------------------------------------
+
+DECLARE
+    sum1 INTEGER:=0;
+BEGIN
+    for i in 0..100 LOOP
+        sum1:= sum1+i;
+    end LOOP;
+    
+    DBMS_OUTPUT.PUT_LINE ('SUM : '||sum1);
+END;
+
+-------------------------------------------------------Q8-----------------------------------------------------------------
+
+CREATE VIEW view_dept AS
+    SELECT *
+    FROM EMP
+    WHERE deptno = (select deptno from dept where dname='ACCOUNTING') ;
+select * from view_dept ;
+
+-------------------------------------------------------Q9-----------------------------------------------------------------
+
+SET SERVEROUTPUT ON
+DECLARE
+    CURSOR cur_emp is
+    select * from emp where sal > 2000;
+BEGIN
+    for iterator in cur_emp
+    loop
+        DBMS_OUTPUT.PUT_LINE (iterator.ename || ' ' || iterator.empno || ' ' || iterator.job || ' ' || iterator.mgr || ' ' || iterator.hiredate|| ' ' || iterator.sal || ' ' || iterator.comm || ' ' || iterator.deptno);
+    end loop;
+END;
+
+-------------------------------------------------------Q10-----------------------------------------------------------------
+
+
+SET SERVEROUTPUT ON
+DECLARE
+    cnt int :=0;
+BEGIN
+    for iterator in (select * from emp)
+    loop
+        cnt:=cnt+1;
+        DBMS_OUTPUT.PUT_LINE (iterator.ename || ' ' || iterator.empno || ' ' || iterator.job || ' ' || iterator.mgr || ' ' || iterator.hiredate|| ' ' || iterator.sal || ' ' || iterator.comm || ' ' || iterator.deptno);
+        if cnt=10 then
+            exit;
+        end if;
+    end loop;
+END;
+
+
+-------------------------------------------------------Q11-----------------------------------------------------------------
+
+SET SERVEROUTPUT ON
+
+CREATE or REPLACE PROCEDURE add_two_num (num1 int ,num2 int) return int is
+BEGIN
+    return num1+num2;
+ END add_two_num;   
+ /
+DECLARE
+    num1 int ;
+    num2 int ;
+BEGIN
+    num1:=&num1;
+    num2:=&num2;
+     DBMS_OUTPUT.PUT_LINE (add_two_num(num1,num2));
+END;
+
+

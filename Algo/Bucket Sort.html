@@ -1,0 +1,237 @@
+
+<!-- saved from url=(0085)http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/bucketSort.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	<title>Bucket Sort</title>
+	<meta name="Author" content="Rashid Bin Muhammad">
+
+
+
+</head>
+
+
+
+<body background="./Bucket Sort_files/Bck2.gif" link="#0000FF" vlink="#0000FF" alink="#FF0000" bodylink="blue">
+
+
+
+<center>
+<p>
+<font size="4">
+<img src="./Bucket Sort_files/redline.gif" height="2" width="640"></font></p>
+
+<h2><font size="6">Bucket Sort</font></h2>
+
+<p><font size="4"><img src="./Bucket Sort_files/redline.gif" height="2" width="640"></font></p>
+</center>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<p><font size="6" face="Blackadder ITC" color="#FF0000">B</font><font size="4">ucket 
+sort runs in linear time on the average. It assumes that the input is generated 
+by a random process that distributes elements uniformly over the interval [0, 
+1).</font></p>
+
+
+
+<p><font size="4">The idea of Bucket sort is to divide the interval [0, 1) into n equal-sized 
+subintervals, or buckets, and then distribute the n input numbers into the 
+buckets. Since the inputs are uniformly distributed over (0, 1), we don't expect 
+many numbers to fall into each bucket. To produce the output, simply sort the 
+numbers in each bucket and then go through the bucket in order, listing the 
+elements in each.</font></p>
+
+
+
+<p><font size="4">The code assumes that input is in n-element array </font>
+<font size="5">A</font><font size="4"> and each element in </font>
+<font size="5">A</font><font size="4"> satisfies </font><font size="5">0 &#8804; <i>A</i>[<i>i</i>] &#8804; 
+</font><font size="4">1. We also need an auxiliary array </font><font size="5">B[0 
+. . <i>n </i>-1]</font><font size="4"> for linked-lists (buckets).</font></p>
+<p>&nbsp;</p>
+<blockquote>
+	<blockquote>
+		<blockquote>
+			<p><b><font size="5"><font color="#FF00FF">BUCKET_SORT</font> (A)</font></b></p>
+			<ol>
+				<li><i><font size="5">n</font></i><font size="5">
+				<font face="Times New Roman">&#8592; </font>length [<i>A</i>]</font></li>
+				<li><font size="5">For <i>i</i> = 1 to <i>n</i> do</font></li>
+				<li><font size="5">&nbsp;&nbsp;&nbsp; Insert <i>A</i>[<i>i</i>] into list 
+				<i>B</i>[<i>nA</i>[<i>i</i>]]</font></li>
+				<li><font size="5">For <i>i</i> = 0 to <i>n</i>-1 do</font></li>
+				<li><font size="5">&nbsp;&nbsp;&nbsp; Sort list <i>B</i> with Insertion sort</font></li>
+				<li><font size="5">Concatenate the lists <i>B</i>[0], <i>B</i>[1], . . 
+				<i>B</i>[<i>n</i>-1] 
+  together in order.</font></li>
+			</ol>
+		</blockquote>
+	</blockquote>
+</blockquote>
+
+
+
+<h3>&nbsp;</h3>
+<h3><font color="#CC0000" size="5">Example</font></h3>
+<p><font size="4">Given input array </font><font size="5">A[1..10]</font><font size="4">. The array 
+</font><font size="5">B[0..9]</font><font size="4"> of sorted lists or buckets 
+after line 5. Bucket i holds values in the interval </font><font size="5">[<i>i</i>/10, (<i>i
+</i>+1)/10]</font><font size="4">. The sorted output consists of a concatenation 
+in order of the lists first </font><font size="5">B[0]</font><font size="4"> 
+then </font><font size="5">B[1]</font><font size="4"> then </font>
+<font size="5">B[2]</font><font size="4"> ... and the last one is </font>
+<font size="5">B[9]</font><font size="4">.</font></p>
+<p>&nbsp;</p>
+<p align="center">
+<font size="4">
+<img border="0" src="./Bucket Sort_files/bucketSort.gif" width="359" height="270"></font></p>
+
+
+
+<h3>&nbsp;</h3>
+<h3><font color="#CC0000" size="5">Analysis</font></h3>
+
+
+
+
+
+<p><font size="4">All lines except line 5 take </font><font size="5">O(<i>n</i>)</font><font size="4"> time in the worst case. We 
+can see inspection that total time to examine all buckets in line 5 is </font>
+<font size="5">O(<i>n</i>-1)</font><font size="4"> 
+i.e., </font><font size="5">O(<i>n</i></font><font size="4">).</font></p>
+
+
+
+
+
+<p><font size="4">The only interesting part of the analysis is the time taken by Insertion sort 
+in line 5. Let </font><font size="5"> <i>n<sub>i</sub></i></font><font size="4"> be the random variable denoting the number 
+of elements in the bucket </font><font size="5"> <i>B</i>[<i>i</i>]</font><font size="4">. Since the expected time to sort by INSERTION_SORT is
+</font><font size="5">O(<i>n</i><sup>2</sup>)</font><font size="4">, the expected time to sort the 
+elements in bucket </font><font size="5">B[<i>i</i>]</font><font size="4"> is</font></p>
+<p>&nbsp;</p>
+
+
+
+
+
+<p align="center"><font size="5"><i>E</i>[O(<sup>2</sup><i>n<sub>i</sub></i>)] 
+= O(<i>E</i>[<sup>2</sup><i>n<sub>i</sub></i>]]</font></p>
+<p align="center">&nbsp;</p>
+
+
+
+
+
+<p><font size="4">Therefore, the total expected time to sort all elements in all buckets is</font></p>
+<p>&nbsp;</p>
+
+
+
+
+
+<p align="center"><sup><font size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font size="5">n-1</font></sup><font size="5">&#8721;<sub>i=0</sub> <i>O</i>(<i>E</i>[<sup>2</sup><i>n<sub>i</sub></i>]) 
+= <i>O</i><sup> n-1</sup>&#8721;<sub>i=0 </sub>(<i>E</i>[<sup>2</sup><i>n<sub>i</sub></i>])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;------------ A</font></p>
+
+
+
+
+
+<p>&nbsp;</p>
+<blockquote>
+	<p>&nbsp;</p>
+	<p><font size="4">I<font color="#FF00FF">n order to evaluate this summation, we must determine the distribution of 
+each random variable </font></font><font color="#FF00FF"><i><font size="5">n</font></i></font></p>
+	<blockquote>
+		<p><font size="4">We have </font><font size="5"><i>n</i></font><font size="4"> elements and 
+		</font><font size="5">n</font><font size="4"> buckets. The probability that a given element falls in a bucket 
+		<i>B</i>[<i>i</i>] is 
+1/<i>n </i>i.e., Probability = <i>p </i>= 1/<i>n</i>. (Note that this problem is 
+the same as that of "Balls-and-Bin" problem).</font></p>
+		<blockquote>
+			<p><font size="4">Therefore, the probability follows the binomial distribution, which has</font></p>
+			<p><font size="4">&nbsp;&nbsp;&nbsp; mean:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font><font size="5">E[<i>n<sub>i</sub></i>] = 
+<i>np</i> = 1</font><font size="4"><br>&nbsp;&nbsp;&nbsp;
+variance:&nbsp; </font><font size="5">Var[<i>n<sub>i</sub></i>] = <i>np</i>(1-<i> p</i>) = 1- 1/</font><i><font size="5">n</font></i></p>
+			<p><font size="4">For any random variable, we have</font></p>
+			<blockquote>
+				<p><i><font size="5">E</font></i><font size="5">[<sup>2</sup><i>n<sub>i</sub></i>] = Var[<i>n<sub>i</sub></i>] +&nbsp;
+				<i>E</i><sup>2</sup>[<i>n<sub>i</sub></i>]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 1 - 1/<i>n</i> + 1<sup>2</sup><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 2 - 1/<i>n</i><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= <img border="0" src="./Bucket Sort_files/thetaBig.gif" width="15" height="16">(1)</font></p>
+			</blockquote>
+		</blockquote>
+	</blockquote>
+</blockquote>
+
+
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font size="4">Putting this value in equation A above, (do some tweaking) and we have 
+a expected time for INSERTION_SORT, </font><font size="5">O(<i>n</i>)</font><font size="4">.</font></p>
+
+
+
+
+
+<p>&nbsp;</p>
+<p><font size="4" color="#FF00FF">Now back to our original problem</font></p>
+
+
+
+
+
+<blockquote>
+	<p><font size="4">In the above Bucket sort algorithm, we observe</font></p>
+	<blockquote>
+		<p><font size="5">T(n) = [time to insert <i>n</i> elements in array <i>A</i>] + [time to go 
+through auxiliary array <i>B</i>[0 . . <i>n</i>-1] * (Sort by INSERTION_SORT)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = O(<i>n</i>) + (<i>n</i>-1) 
+		</font><font face="Times New Roman" size="4">
+		<img border="0" src="file:///C:/aaaaa/MyAlgorithms/MathSymbols/thetaBig.gif" width="15" height="16"></font><font size="5">(<i>n</i>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = O(<i>n</i>)</font></p>
+	</blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p><font size="4">Therefore, the entire Bucket sort algorithm runs in linear 
+<font color="#FF00FF">expected</font> time.</font></p>
+
+
+
+
+
+<p>&nbsp;</p>
+
+
+
+
+
+<center><font size="4"><img src="./Bucket Sort_files/redline.gif" height="2" width="640">
+
+</font>
+
+<p>
+
+<a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html"> 
+
+<font size="4"> 
+
+<img src="./Bucket Sort_files/back.gif" border="0" height="47" width="49"></font></a></p>
+
+
+</center>
+
+
+
+
+
+
+</body></html>

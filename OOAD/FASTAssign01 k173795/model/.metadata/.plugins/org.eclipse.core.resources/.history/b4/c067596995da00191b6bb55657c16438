@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_nLs8ANo8EemgO-VNYisxWQ" name="Q3">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_nS_20No8EemgO-VNYisxWQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_58d9oNqPEemlfe9YGzcwZg" name="teaching_hospital"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6Y7QINqPEemlfe9YGzcwZg" name="Class3"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6fVaINqPEemlfe9YGzcwZg" name="Class4"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6lS4MNqPEemlfe9YGzcwZg" name="Class5"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6s4t8NqPEemlfe9YGzcwZg" name="Class6"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6yjRENqPEemlfe9YGzcwZg" name="Class7"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_63nXQNqPEemlfe9YGzcwZg" name="Class8"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6-LSQNqPEemlfe9YGzcwZg" name="Class9"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7FeNENqPEemlfe9YGzcwZg" name="Class10"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7Mn98NqPEemlfe9YGzcwZg" name="Class11"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7vNtoNqPEemlfe9YGzcwZg" name="Class12"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_71n3oNqPEemlfe9YGzcwZg" name="Class13"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7-HFQNqPEemlfe9YGzcwZg" name="Class14"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_8EhPQNqPEemlfe9YGzcwZg" name="Class15"/>
+</uml:Model>

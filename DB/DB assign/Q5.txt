@@ -1,0 +1,5 @@
+has_phone would be redundant when employee have all phones of their department not other departments.
+Assumption:
+employee assinged (1,10) phones
+phone assinged (1,40) employee
+phone (1,1) department

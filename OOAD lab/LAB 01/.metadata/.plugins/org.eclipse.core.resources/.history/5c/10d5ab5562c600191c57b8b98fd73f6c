@@ -1,0 +1,9 @@
+package task;
+
+public class Cylinder {
+
+	public Cylinder() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

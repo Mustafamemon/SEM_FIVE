@@ -1,0 +1,21 @@
+i)select UPPER(M_NAME), TO_CHAR(sysdate,'YYYY') - TO_CHAR(BORN,'YYYY') AS AGE from Musician where DIED is NULL ;
+
+ii)select m.M_NAME from musician m where m.M_NO not in (select orgnizer from concert ) ;
+
+iii)select  DISTINCT(INSTRUMENT) from Performer order by instrument;
+
+iv)select M_NAME from Musician where M_NO  in (select  orgnizer from concert where CONCERT_VENUE = 'Bridgewater Hall');
+
+v)select m.M_NAME , p.PLACE_TOWN  from musician m  , place  p where m.born_in in (select born_in from musician where M_NAME ='James First') and m.born_in = p.place_no;
+
+vi)select perf_no ,instrument from performer where perf_no in (select perf_is from Performer  Group by perf_is HAVING (count(perf_is) >=2)) order by perf_no , instrument;
+
+vii)select DISTINCT M_NAME ,BORN , DIED from musician ,performer,concert where m_no=orgnizer and m_no = perf_is
+
+viii)select * from performer  , musician where perf_is= m_no and born_in = (select place_no from place where place_country = 'England' and place_town= 'Manchester') and INSTRUMENT='Violin' or INSTRUMENT='Guiter';
+
+ix)select M_NAME from musician where born_in = living_in;
+
+x)select M_NAME , born ,INSTRUMENT from performer,musician where perf_is = m_no and Died is NULL and INSTRUMENT in (select INSTRUMENT from performer where perf_is = (select m_no from musician where M_NAME = 'Theo Mengel'));
+
+xi)select perf_is , count(perf_is) as Count from performer group by perf_is HAVING count(perf_is)  = (select max(count(perf_is)) from performer group by perf_is) ;

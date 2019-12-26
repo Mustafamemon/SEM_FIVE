@@ -1,0 +1,3 @@
+i)UPDATE emp SET SAL = SAL+250 WHERE (JOB = 'CLERK' and SAL<=900) ;
+ii)UPDATE emp set DEPTNO = 20 ,  SAL  = SAL*1.15 where EMPNO = 7890;
+iii)DELETE from emp WHERE HIREDATE  < TO_DATE('1-JAN-1981','DD-MM-YYYY');

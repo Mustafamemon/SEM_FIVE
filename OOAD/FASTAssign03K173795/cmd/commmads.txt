@@ -1,0 +1,5 @@
+idlj -fall  Hello.idl
+javac *.java HelloApp/*.java
+start orbd -ORBInitialPort 1050
+start java HelloServer -ORBInitialPort 1050 -ORBInitialHost localhost
+java HelloClient -ORBInitialPort 1050 -ORBInitialHost localhost

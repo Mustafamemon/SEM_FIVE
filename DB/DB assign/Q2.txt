@@ -1,0 +1,46 @@
+-------------------------a---------------------------
+
+BANK
+LOANS
+ACCOUNT
+CUSTOMER
+
+-------------------------b---------------------------
+
+Name : Bank_Branch
+Partial key : Branch_no
+RelationShip : many-one(branches-weak) 
+
+-------------------------c---------------------------
+partial key : BranchNo in BANK-BRANCH (same BranchNo value may occur under different BANKs.)
+The BANK Code + BranchNo together is unique identifier for a BANK-BRANCH.
+-------------------------d---------------------------
+in folder
+-------------------------e---------------------------
+Bank:
+	unique code 
+	name
+	addr
+Bank related to one or more Branch:
+	unique Branch_no
+	addr
+Banck branch has (0,n) accts and loans
+Account:
+	unique Acct_no
+	balance
+	type
+	related to atleast one branch and customer
+Loan:
+	unique loan_no
+	amount
+	type
+	related to exaclty one branch and atleast one customer
+Customer:
+	unique Ssn
+	Name
+	phone
+	addr
+	related to (0,n) accounts and loans
+
+-------------------------f---------------------------
+in folder

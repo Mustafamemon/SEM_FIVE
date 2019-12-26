@@ -1,0 +1,9 @@
+package task;
+
+public class Circle3 {
+
+	public Circle3() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

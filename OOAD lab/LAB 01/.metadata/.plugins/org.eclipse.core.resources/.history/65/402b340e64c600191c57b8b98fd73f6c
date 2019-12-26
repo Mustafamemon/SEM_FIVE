@@ -1,0 +1,9 @@
+package task;
+
+public class goat extends Animal{
+
+	public goat() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

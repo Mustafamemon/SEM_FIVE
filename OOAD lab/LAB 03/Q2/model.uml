@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_VAOOgM7BEemWJp88bzIMbg" name="model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_g5-G4M7FEemWJp88bzIMbg" name="system"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_AoXLQM7GEemWJp88bzIMbg" name="faculty"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_A_HeYM7GEemWJp88bzIMbg" name="slate">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_BrdnAM7GEemWJp88bzIMbg" name="Resources">
+      <extend xmi:type="uml:Extend" xmi:id="_NNvL0M7QEemWJp88bzIMbg" extendedCase="_K12ucM7QEemWJp88bzIMbg" extensionLocation="_NOCGwc7QEemWJp88bzIMbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_IzzisM7GEemWJp88bzIMbg" name="Announcements">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_3x4uQM7PEemWJp88bzIMbg" name="ExtensionPoint1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_cUR_EM7OEemWJp88bzIMbg" name="Assignment">
+      <include xmi:type="uml:Include" xmi:id="_5lTzsM7PEemWJp88bzIMbg" addition="_k51DIM7PEemWJp88bzIMbg"/>
+      <include xmi:type="uml:Include" xmi:id="_8ZmgQM7PEemWJp88bzIMbg" addition="_pxsJ8M7PEemWJp88bzIMbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_4O_WcM7OEemWJp88bzIMbg" name="Help"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_7FGA4M7OEemWJp88bzIMbg" name="Tests &amp; Quizzes"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_KtYkYM7PEemWJp88bzIMbg" name="time-critical">
+      <extend xmi:type="uml:Extend" xmi:id="_3xVUoM7PEemWJp88bzIMbg" extendedCase="_IzzisM7GEemWJp88bzIMbg" extensionLocation="_3x4uQM7PEemWJp88bzIMbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_k51DIM7PEemWJp88bzIMbg" name="Post-Assignment"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pxsJ8M7PEemWJp88bzIMbg" name="receive submissions"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_K12ucM7QEemWJp88bzIMbg" name="can Download">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_NOCGwc7QEemWJp88bzIMbg" name="ExtensionPoint1"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_WOlMIM7OEemWJp88bzIMbg" name="student"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_XVjbQM7OEemWJp88bzIMbg" name="admin"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RsedcM7PEemWJp88bzIMbg" name="A_faculty_announcements" memberEnd="_Rsedcc7PEemWJp88bzIMbg _RseddM7PEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Rsedcc7PEemWJp88bzIMbg" name="faculty" type="_AoXLQM7GEemWJp88bzIMbg" association="_RsedcM7PEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rsedcs7PEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rsedc87PEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_RseddM7PEemWJp88bzIMbg" name="announcements" type="_IzzisM7GEemWJp88bzIMbg" association="_RsedcM7PEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rseddc7PEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rsedds7PEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_T8n7IM7PEemWJp88bzIMbg" name="A_admin_announcements" memberEnd="_T8n7Ic7PEemWJp88bzIMbg _T8n7JM7PEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_T8n7Ic7PEemWJp88bzIMbg" name="admin" type="_XVjbQM7OEemWJp88bzIMbg" association="_T8n7IM7PEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T8n7Is7PEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T8n7I87PEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_T8n7JM7PEemWJp88bzIMbg" name="announcements" type="_IzzisM7GEemWJp88bzIMbg" association="_T8n7IM7PEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T8n7Jc7PEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T8n7Js7PEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FCMGsM7QEemWJp88bzIMbg" name="A_student_tests &amp; quizzes" memberEnd="_FCMGsc7QEemWJp88bzIMbg _FCMGtM7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FCMGsc7QEemWJp88bzIMbg" name="student" type="_WOlMIM7OEemWJp88bzIMbg" association="_FCMGsM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FCMGss7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FCMGs87QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FCMGtM7QEemWJp88bzIMbg" name="tests &amp; quizzes" type="_7FGA4M7OEemWJp88bzIMbg" association="_FCMGsM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FCMGtc7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FCMGts7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FzxUoM7QEemWJp88bzIMbg" name="A_faculty_tests &amp; quizzes" memberEnd="_FzxUoc7QEemWJp88bzIMbg _FzxUpM7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FzxUoc7QEemWJp88bzIMbg" name="faculty" type="_AoXLQM7GEemWJp88bzIMbg" association="_FzxUoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FzxUos7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FzxUo87QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FzxUpM7QEemWJp88bzIMbg" name="tests &amp; quizzes" type="_7FGA4M7OEemWJp88bzIMbg" association="_FzxUoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FzxUpc7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FzxUps7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_GURZoM7QEemWJp88bzIMbg" name="A_faculty_help" memberEnd="_GURZoc7QEemWJp88bzIMbg _GURZpM7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_GURZoc7QEemWJp88bzIMbg" name="faculty" type="_AoXLQM7GEemWJp88bzIMbg" association="_GURZoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GURZos7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GURZo87QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_GURZpM7QEemWJp88bzIMbg" name="help" type="_4O_WcM7OEemWJp88bzIMbg" association="_GURZoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GURZpc7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GURZps7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_HED30M7QEemWJp88bzIMbg" name="A_faculty_assignment" memberEnd="_HED30c7QEemWJp88bzIMbg _HED31M7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HED30c7QEemWJp88bzIMbg" name="faculty" type="_AoXLQM7GEemWJp88bzIMbg" association="_HED30M7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HED30s7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HED3087QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HED31M7QEemWJp88bzIMbg" name="assignment" type="_cUR_EM7OEemWJp88bzIMbg" association="_HED30M7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HED31c7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HED31s7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_IF8yoM7QEemWJp88bzIMbg" name="A_student_assignment" memberEnd="_IF8yoc7QEemWJp88bzIMbg _IF8ypM7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_IF8yoc7QEemWJp88bzIMbg" name="student" type="_WOlMIM7OEemWJp88bzIMbg" association="_IF8yoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IF8yos7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IF8yo87QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_IF8ypM7QEemWJp88bzIMbg" name="assignment" type="_cUR_EM7OEemWJp88bzIMbg" association="_IF8yoM7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IF8ypc7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IF8yps7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JwV34M7QEemWJp88bzIMbg" name="A_student_resources" memberEnd="_JwV34c7QEemWJp88bzIMbg _JwV35M7QEemWJp88bzIMbg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JwV34c7QEemWJp88bzIMbg" name="student" type="_WOlMIM7OEemWJp88bzIMbg" association="_JwV34M7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JwV34s7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JwV3487QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JwV35M7QEemWJp88bzIMbg" name="resources" type="_BrdnAM7GEemWJp88bzIMbg" association="_JwV34M7QEemWJp88bzIMbg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JwV35c7QEemWJp88bzIMbg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JwV35s7QEemWJp88bzIMbg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

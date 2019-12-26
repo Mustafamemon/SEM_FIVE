@@ -1,0 +1,32 @@
+package q2_lab_07;
+
+public class services {
+	public void Services() {
+		customer cus  = new customer ;
+		cashier	cas new cashier;
+		
+		while(cus.trolly!="")
+		{
+			cas.unload(cus.trolly.item.cost);
+			cas.telly(total_cost);
+		}
+		request_pay();
+		if(cus.type=="cash") {
+			cash_register cr =new cash_register();
+			cus.cash();
+			cas.deposite_payment();
+			cr.return_change();
+			cas.return_change();
+		}
+		else if(cus.type == "debitcard")
+		{
+			debit_register dr =new debit_register();
+			cus.credit();
+			cas.processcrd();
+			dr.returnstatus();
+			cas.reciept();
+			
+		}
+	}
+	
+}

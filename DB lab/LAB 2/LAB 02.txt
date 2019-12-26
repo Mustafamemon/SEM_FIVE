@@ -1,0 +1,147 @@
+--
+--DROP TABLE EMP;
+--DROP TABLE DEPT;
+--DROP TABLE BONUS;
+--DROP TABLE SALGRADE;
+--DROP TABLE DUMMY;
+--
+--CREATE TABLE EMP
+--       (EMPNO NUMBER(4) NOT NULL,
+--        ENAME VARCHAR2(10),
+--        JOB VARCHAR2(9),
+--        MGR NUMBER(4),
+--        HIREDATE DATE,
+--        SAL NUMBER(7, 2),
+--        COMM NUMBER(7, 2),
+--        DEPTNO NUMBER(2));
+--
+--INSERT INTO EMP VALUES
+--        (7369, 'SMITH',  'CLERK',     7902,
+--        TO_DATE('17-DEC-1980', 'DD-MON-YYYY'),  800, NULL, 20);
+--INSERT INTO EMP VALUES
+--        (7499, 'ALLEN',  'SALESMAN',  7698,
+--        TO_DATE('20-FEB-1981', 'DD-MON-YYYY'), 1600,  300, 30);
+--INSERT INTO EMP VALUES
+--        (7521, 'WARD',   'SALESMAN',  7698,
+--        TO_DATE('22-FEB-1981', 'DD-MON-YYYY'), 1250,  500, 30);
+--INSERT INTO EMP VALUES
+--        (7566, 'JONES',  'MANAGER',   7839,
+--        TO_DATE('2-APR-1981', 'DD-MON-YYYY'),  2975, NULL, 20);
+--INSERT INTO EMP VALUES
+--        (7654, 'MARTIN', 'SALESMAN',  7698,
+--        TO_DATE('28-SEP-1981', 'DD-MON-YYYY'), 1250, 1400, 30);
+--INSERT INTO EMP VALUES
+--        (7698, 'BLAKE',  'MANAGER',   7839,
+--        TO_DATE('1-MAY-1981', 'DD-MON-YYYY'),  2850, NULL, 30);
+--INSERT INTO EMP VALUES
+--        (7782, 'CLARK',  'MANAGER',   7839,
+--        TO_DATE('9-JUN-1981', 'DD-MON-YYYY'),  2450, NULL, 10);
+--INSERT INTO EMP VALUES
+--        (7788, 'SCOTT',  'ANALYST',   7566,
+--        TO_DATE('09-DEC-1982', 'DD-MON-YYYY'), 3000, NULL, 20);
+--INSERT INTO EMP VALUES
+--        (7839, 'KING',   'PRESIDENT', NULL,
+--        TO_DATE('17-NOV-1981', 'DD-MON-YYYY'), 5000, NULL, 10);
+--INSERT INTO EMP VALUES
+--        (7844, 'TURNER', 'SALESMAN',  7698,
+--        TO_DATE('8-SEP-1981', 'DD-MON-YYYY'),  1500,    0, 30);
+--INSERT INTO EMP VALUES
+--        (7876, 'ADAMS',  'CLERK',     7788,
+--        TO_DATE('12-JAN-1983', 'DD-MON-YYYY'), 1100, NULL, 20);
+--INSERT INTO EMP VALUES
+--        (7900, 'JAMES',  'CLERK',     7698,
+--        TO_DATE('3-DEC-1981', 'DD-MON-YYYY'),   950, NULL, 30);
+--INSERT INTO EMP VALUES
+--        (7902, 'FORD',   'ANALYST',   7566,
+--        TO_DATE('3-DEC-1981', 'DD-MON-YYYY'),  3000, NULL, 20);
+--INSERT INTO EMP VALUES
+--        (7934, 'MILLER', 'CLERK',     7782,
+--        TO_DATE('23-JAN-1982', 'DD-MON-YYYY'), 1300, NULL, 10);
+--
+--CREATE TABLE DEPT
+--       (DEPTNO NUMBER(2),
+--        DNAME VARCHAR2(14),
+--        LOC VARCHAR2(13) );
+--
+--INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK');
+--INSERT INTO DEPT VALUES (20, 'RESEARCH',   'DALLAS');
+--INSERT INTO DEPT VALUES (30, 'SALES',      'CHICAGO');
+--INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON');
+--
+--CREATE TABLE BONUS
+--        (ENAME VARCHAR2(10),
+--         JOB   VARCHAR2(9),
+--         SAL   NUMBER,
+--         COMM  NUMBER);
+--
+--CREATE TABLE SALGRADE
+--        (GRADE NUMBER,
+--         LOSAL NUMBER,
+--         HISAL NUMBER);
+--
+--INSERT INTO SALGRADE VALUES (1,  700, 1200);
+--INSERT INTO SALGRADE VALUES (2, 1201, 1400);
+--INSERT INTO SALGRADE VALUES (3, 1401, 2000);
+--INSERT INTO SALGRADE VALUES (4, 2001, 3000);
+--INSERT INTO SALGRADE VALUES (5, 3001, 9999);
+--
+--CREATE TABLE DUMMY
+--        (DUMMY NUMBER);
+--
+--INSERT INTO DUMMY VALUES (0);
+--
+--COMMIT;
+--
+----SET TERMOUT ON
+----PROMPT Demonstration table build is complete.
+--
+------EXIT
+--select sysdate from dual;
+--select ABS(1) from dual;
+--select TRUNC(-54,1) from dual;
+--select to_char(sal+NVL(comm,0),'$9999') from emp;
+--select to_char(sysdate,'yyyy') - 1999 from dual;
+--select to_char(sysdate,'Day Month YYYY')from dual;
+--select to_date('1-JUn-2018') from dual;
+--select round(to_date('15-JUL-95','DD-MON,YY'),'MONTH') from dual ;
+--select months_between(to_char(sysdate), '10-JUN-1999')/12 from dual;
+--select AVG(sal) from emp group by deptno having avg(sal) > 200;
+--select count(*) from emp group by deptno;
+
+
+
+
+-------------LAB TASK------------------------
+--1)select INITCAP(ename) , LOWER(job) from emp;
+
+--2)select empno , UPPER(ename), deptno from emp where (ename='BLAKE');
+
+
+--3)select empno , to_char(hiredate,'MM'), to_char(hiredate,'yyyy') from emp;
+
+--4)select sal*12,ename,job from emp;
+
+--5)select * from emp order by sal asc;
+
+
+--6)select to_char(sal,'$9999') from emp where (ename='SCOTT');
+
+--7)select * from emp where (sal/30 > 100) ;
+
+--8)select ename, empno, sal as Salary, (sal+sal*.15) as "New Salary"  ,(sal*.15) as "Increment" from emp;
+
+--9)select ename , NVL2(comm,to_char(comm),to_char('No commision')) from emp;
+
+--10)select ename,hiredate,to_char(hiredate,'day') as DAY from emp;
+
+--11)select INITCAP(ename) as name  , LENGTH(ename) as length from emp where(ename like 'J%' or ename like 'A%' or ename like 'M%') ;
+
+--12)select ename from emp where (to_char(sysdate,'yyyy') - to_char(hiredate,'yyyy')>35 );
+
+--13)select SUM(sal) from emp;
+
+--14)select deptno , count(*) from emp group by deptno ;
+
+--15)select deptno ,  max(sal)from emp group by deptno having max(sal)>2900;
+
+--16)select deptno, count(deptno) from emp group by deptno having count(deptno)>3;
